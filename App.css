@@ -1,0 +1,251 @@
+/* General styles */
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #141414;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.app {
+  width: 100%;
+  height: 100%;
+}
+
+/* Header Styles */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px 20px;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: bold;
+  color: #e50914;
+}
+
+.navbar-links {
+  display: flex;
+}
+
+.navbar-links button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  margin-left: 20px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.navbar-links button:hover {
+  color: #e50914;
+}
+
+.navbar-links button.active {
+  border-bottom: 3px solid #e50914;
+  color: #e50914;
+}
+
+/* Search Bar Styles */
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin: 100px auto;
+}
+
+.search-bar input {
+  width: 400px;
+  padding: 15px;
+  font-size: 18px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  margin-right: 10px;
+}
+
+.search-bar button {
+  background-color: #e50914;
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.search-bar button:hover {
+  background-color: #b20710;
+}
+
+/* Main Section - Movie Cards */
+#main {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 120px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.movie {
+  background-color: #333;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.9);
+}
+
+.movie img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+}
+
+.movie img:hover {
+  transform: scale(1.05);
+  filter: brightness(70%);
+}
+
+.movie-info {
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 0 0 15px 15px;
+}
+
+.movie:hover .movie-info {
+  opacity: 1;
+}
+
+.movie-info h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.movie-info a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #e50914;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.movie-info a:hover {
+  background-color: #b20710;
+}
+
+.movie-info span {
+  font-size: 14px;
+  color: #e50914;
+  font-weight: bold;
+}
+
+/* Hover effect on play button */
+.movie-info a.play-btn {
+  background-color: #fff;
+  color: #141414;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+/* Play button styles */
+.play-btn {
+  display: block;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #e50914;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+}
+
+.play-btn:hover {
+  background-color: #b81d24;
+}
+
+.movie-info a.play-btn:hover {
+  background-color: #e50914;
+  color: #fff;
+}
+
+/* Modal for watching the movie or trailer */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background-color: #222;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 80%;
+  position: relative;
+}
+
+.modal-content iframe {
+  width: 100%;
+  height: 500px;
+  border: none;
+  border-radius: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+}
